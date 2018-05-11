@@ -1,0 +1,42 @@
+<div id="loggin-form-container">
+<form id="loggin-form" action="">
+	{% csrf_token %}
+				{{ form.as_p }}
+	<!--  E-mail:<br>
+	<input type="text" name="email"><br>
+	Password:<br>
+	<input type="password" name="password">
+	-->
+	<br><br>
+	<button type="button" id="register" onclick="toggleForm('register-form-container', 'loggin-form-container')">Register</button>
+	<input type="submit" value="Loggin">
+</form>
+</div>
+<div id="register-form-container">
+	<form id="register-form" action="">
+		User:<br>
+		<input type="text" name="username"><br>
+		E-mail:<br>
+		<input type="email" name="email"><br>
+		Password:<br>
+		<input type="password" name="password">
+		Retype password:<br>
+		<input type="password" name="retyped-password">
+		<br><br>
+		<button type="button" id="user-form-back" onclick="toggleForm('loggin-form-container', 'register-form-container')">Back</button>
+		<input type="submit" value="Register">
+	</form>
+</div>
+
+
+
+{% if username == "" %}
+	{% block content %}
+	{% endblock %}
+{% else %}
+	<img id="user-image" alt="UserImage" src="static/images/generic-user.png">
+	<p>Username: {{ username }} </p>
+	<br>
+	<br>
+	<input type="submit" value="Update">
+{% endif %}
