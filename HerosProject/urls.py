@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Heroes import views as hero_view
+from users import views as hero_view
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', auth_views.login, name='login'),
-    path('', hero_view.heroes_home, name='home'),
-    #path('register/', hero_view.register, name='register'),
-    path('logout/', auth_views.logout, {'next_page': hero_view.heroes_home}),
+    #path('', hero_view.heroes_home, name='home'),
+    path('register/', hero_view.register_new, name='register'),
+    path('', auth_views.login, name='home'),
+    path('logout/', auth_views.logout, {'next_page': auth_views.login}),
 ]

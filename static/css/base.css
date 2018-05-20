@@ -1,3 +1,10 @@
+
+*:focus {
+    outline: none;
+}
+::selection {
+  background: rgba(200, 200, 200, 0.2); /* WebKit/Blink Browsers */
+}
 body  {
 	--bg-color: rgb(41,41,41);
 	color: eee;
@@ -5,7 +12,17 @@ body  {
 	margin: 0px;
 	padding: 0px;
 }
-	
+	button {
+		background-color: rgba(20, 20, 20, 0.8);
+		border-color: rgba(20,20,20,0.1);
+		cursor: pointer;
+	}
+	button:hover {
+		filter: brightness(1.2);
+	}
+	button:active {
+		filter: brightness(1.4);
+	}
 	#menu-container {
 		position: relative;
 		float:left;
@@ -21,10 +38,31 @@ body  {
 			width: 0px;
 			height: 100vh;
 			transition: 0.3s;
+			padding: 100px 0px 20px 0px;
 		}
 		.toggle #menu {
 			width: 200px;
 		}
+			nav {
+				display: none;
+	  			opacity: 0;
+				transition: display 0.1s linear 0.1s, opacity 0.1s linear;
+			}
+			.toggle nav  {
+				display: inline;
+				opacity:1;
+			}
+				.nav-button {
+					width: 100%;
+					height: 40px;
+					margin: 10px 0px 10px 0px;
+					background-color: rgba(20, 20, 20, 0.8);
+					border-color: rgba(20,20,20,0.1);
+					cursor: pointer;
+					color: #eee;
+				}
+		
+		
 		#menu-button {
 			position: fixed;
 			background-color: #6b6b6b;
@@ -33,6 +71,10 @@ body  {
 			cursor: pointer;
 			padding: 0px 6px 6px 6px;
 			z-index: 40;
+		}
+		#menu-button:active {
+			background-color: #838383;
+			transform: translateY(2px) translateX(2px);
 		}
 		#menu-button:hover {filter: brightness(1.2);}
 			/* 3 different bars */
@@ -43,9 +85,9 @@ body  {
 				background-color: #eee;
 				transition: 0.3s;
 			}
-				.toggle .menu-bar1 {transform: rotate(-45deg) translate(-8px, 9px);}
-				.toggle .menu-bar2 {opacity: 0;}
-				.toggle .menu-bar3 {transform: rotate(45deg) translate(-8px, -9px);}
+				.toggle .menu-bar-1 {transform: rotate(-45deg) translate(-8px, 9px);}
+				.toggle .menu-bar-2 {opacity: 0;}
+				.toggle .menu-bar-3 {transform: rotate(45deg) translate(-8px, -9px);}
 		
 	#loggin-container {
 		position: relative;
@@ -116,8 +158,18 @@ body  {
 					border-bottom: 0px solid #eee;
 				}
 		#user-form-container  {
-			padding: 100px 10px 10px 10px;	
+			display: none;
+  			opacity: 0;
+			transition: display 0.1s linear 0.1s, opacity 0.1s linear;
 		}
+		
+		.toggle #user-form-container  {
+			display: inline;
+			opacity:1;
+		}
+			#user-form-container-stile  {
+				padding: 100px 10px 10px 10px;	
+			}
 				input[type=password], input[type=email], input[type=text]  {
 					width: 100%;
 					margin: 5px 0px 5px 0px;
@@ -131,7 +183,7 @@ body  {
 					width: 50%;
 				    padding:5px 15px; 
 	   				border:0 none;
-					background-color: rgba(20,20,20,0.8);
+					background-color: rgba(20, 20, 20, 0.8);
 				    color: #eee;
 				    cursor:pointer;
 				    float:left;

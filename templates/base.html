@@ -6,15 +6,21 @@
 	</head>
 	<body>
 		<header>
-			<nav id="menu-container">
+			<div id="menu-container">
 				<div id="menu">
 					<div id="menu-button" class="menu-button" onclick="toggleMenus(this, 'menu-container')">
 					  	<div class="menu-bar-1"></div>
 					  	<div class="menu-bar-2"></div>
 					  	<div class="menu-bar-3"></div>
 					</div>
+					<nav>
+						<button class="nav-button">Button 1</button>
+						<button class="nav-button">Button 2</button>
+						<button class="nav-button">Button 3</button>
+						<button class="nav-button">Button 4</button>
+					</nav>
 				</div>
-			</nav>
+			</div>
 			<div id="loggin-container">
 				<div id="loggin">
 					<div id="loggin-button" class="loggin-button" onclick="toggleMenus(this, 'loggin-container')">
@@ -22,33 +28,36 @@
 					  	<div class="loggin-bar-3"></div>
 					</div>
 					<div id="user-form-container">
-						{% if request.user.username == "" %}
-							{% block 'login' %}
-								{% include "registration/login.html" %}
-							{% endblock 'login' %}
+						<div id="user-form-container-stile">
+							{% if request.user.username == "" %}
+								{% block 'login' %}
+									<!-- {% include "registration/login.html" %} -->
+								{% endblock 'login' %}
+								<br><br>
+								
+								{% block 'register' %}
+									{% include "registration/register.html" %}
+								{% endblock 'register' %}
+								<br><br>
+							{% else %}
 							
-							{% block 'register' %}
-								{% include "registration/register.html" %}
-							{% endblock 'register' %}
-						{% else %}
-							<img id="user-image" alt="UserImage" src="static/images/generic-user.png">
-							<p>Username: {{ request.user.username }} </p>
-							<br>
-							<br>
-							<input id="update-user" type="submit" value="Update">
-							<button id="logout" >
-								<a id="logout-link" href="/logout">Logout</a>
-							</button>
-						{% endif %}
+								<img id="user-image" alt="UserImage" src="static/images/generic-user.png">
+								<p>Username: {{ request.user.username }} </p>
+								<br>
+								<br>
+								<input id="update-user" type="submit" value="Update">
+								<button id="logout" >
+									<a id="logout-link" href="/logout">Logout</a>
+								</button>
+							{% endif %}
+						</div>
 					</div>
 				</div>
 			</div>
 		</header>
-		
 		<main>
 			<h1>temlplet is working</h1>
 		</main>
-		
 		<script type="text/javascript" src="/static/js/base.js"></script>
 	</body>
 </html>

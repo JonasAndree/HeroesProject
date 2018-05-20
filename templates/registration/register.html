@@ -1,8 +1,16 @@
 {% block 'register' %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+
+<h2>Register</h2>
+<form method="POST" class="post-form">		
+	{% for field in reg_form %}
+		<div class="fieldWrapper">
+			{{ field.errors }} 
+			{{ field.label_tag }}: 
+			{{ field }}
+		</div>
+	{% endfor %}
+	{% csrf_token %}
+	<input type="submit" value="Register">
+</form>
+
 {% endblock 'register' %}
