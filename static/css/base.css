@@ -3,10 +3,10 @@
     outline: none;
 }
 ::selection {
-  background: rgba(200, 200, 200, 0.2); /* WebKit/Blink Browsers */
+	background: rgba(200, 200, 200, 0.2); /* WebKit/Blink Browsers */
 }
 body  {
-	--bg-color: rgb(41,41,41);
+	--bg-color: rgb(41, 41, 41);
 	color: eee;
 	background-color: var(--bg-color);
 	margin: 0px;
@@ -14,14 +14,15 @@ body  {
 }
 	button {
 		background-color: rgba(20, 20, 20, 0.8);
-		border-color: rgba(20,20,20,0.1);
+		border-color: rgba(20, 20, 20, 0.1);
 		cursor: pointer;
 	}
 	button:hover {
-		filter: brightness(1.2);
+		filter: brightness(1.1);
 	}
 	button:active {
-		filter: brightness(1.4);
+		filter: brightness(1.6);
+		transform: translateY(2px) translateX(2px);
 	}
 	#menu-container {
 		position: relative;
@@ -34,7 +35,7 @@ body  {
 		}
 	}
 		#menu {
-			background-color: rgba(20,20,20,0.2);
+			background-color: rgba(20, 20, 20, 0.2);
 			width: 0px;
 			height: 100vh;
 			transition: 0.3s;
@@ -57,7 +58,7 @@ body  {
 					height: 40px;
 					margin: 10px 0px 10px 0px;
 					background-color: rgba(20, 20, 20, 0.8);
-					border-color: rgba(20,20,20,0.1);
+					border-color: rgba(20, 20, 20, 0.1);
 					cursor: pointer;
 					color: #eee;
 				}
@@ -72,11 +73,6 @@ body  {
 			padding: 0px 6px 6px 6px;
 			z-index: 40;
 		}
-		#menu-button:active {
-			background-color: #838383;
-			transform: translateY(2px) translateX(2px);
-		}
-		#menu-button:hover {filter: brightness(1.2);}
 			/* 3 different bars */
 			.menu-bar-1, .menu-bar-2, .menu-bar-3 {
 				width: 30px;
@@ -101,7 +97,7 @@ body  {
 	}
 		
 		#loggin {
-			background-color: rgba(20,20,20,0.2);
+			background-color: rgba(20, 20, 20, 0.2);
 			width: 0px;
 			height: 100vh;
 			transition: 0.3s;
@@ -114,17 +110,15 @@ body  {
 			background-color: #6b6b6b;
 			top: 5px;
 			right: 5px;
-			cursor: pointer;
 			z-index: 40;
 			width: 42px;
 			height: 42px;
 		}
-		#loggin-button:hover {filter: brightness(1.2);}
 			/* 3 different bars */
 			.loggin-bar-1 {
 				width: 15px;
 				height: 15px;
-				margin: 7px 0px 0px 13px;
+				margin: 0px 0px 0px 6px;
 				background-color: #eee;
 				border-radius: 15px;
 				transition: 0.3s;
@@ -132,7 +126,7 @@ body  {
 			}
 			.loggin-bar-3 {
 				width: 4px;
-				margin: 0px 0px 0px 6px;
+				margin: -2px 0px 0px 0px;
 				border-radius: 12px;
 				border-left: 12px solid transparent;
 				border-right: 12px solid transparent;
@@ -142,17 +136,17 @@ body  {
 				.toggle .loggin-bar-1 {
 					width: 30px;
 					height: 5px;
-					margin: 8px 0px 0px 0px;
+					margin: 0px 0px 0px -8px;
 					background-color: #eee;
-					transform: rotate(-45deg) translate(-2px, 12px);
+					transform: rotate(-45deg) translate(2px, 6px);
 					border-radius: 0px;
 				}
 				.toggle .loggin-bar-3 {
 					width: 30px;
 					height: 5px;
-					margin: 8px 0px 0px 0px;
+					margin: 0px 0px 0px -8px;
 					background-color: #eee;
-					transform: rotate(45deg) translate(4px, -7px);
+					transform: rotate(45deg) translate(2px, -6px);
 					border-left: 0px solid transparent;
 					border-right: 0px solid transparent;
 					border-bottom: 0px solid #eee;
@@ -175,7 +169,7 @@ body  {
 					margin: 5px 0px 5px 0px;
 				    padding:5px 15px; 
 	   				border:0 none;
-					background-color: rgba(20,20,20,0.8);
+					background-color: rgba(20, 20, 20, 0.8);
 				    color: #eee;
 				}
 				#user-form-back, #logout, #register, button[type=submit], input[type=submit] {
@@ -190,7 +184,7 @@ body  {
 				}
 				
 				#update-user, #user-form-back, #register {
-					background-color: rgba(30,30,30,0.8);
+					background-color: rgba(30, 30, 30, 0.8);
 				}
 				#logout-link {
 				    color: #eee;
@@ -199,9 +193,13 @@ body  {
 			#user-form-back:hover, #register:hover, input[type=password]:hover, 
 			input[type=email]:hover, input[type=text]:hover , 
 			input[type=submit]:hover {
-				filter: brightness(1.2);
+				filter: brightness(1.1);
 			}
-			
+			#user-form-back:active, #register:active, input[type=password]:active, 
+			input[type=email]:active, input[type=text]:active , 
+			input[type=submit]:active {
+				filter: brightness(1.6);
+			}
 			
 		#user-image {
 			width:100%;
@@ -210,7 +208,7 @@ body  {
 			cursor:pointer;
 		}
 		#user-image:hover {
-			filter: grayscale(100%) brightness(1.2);
+			filter: grayscale(100%) brightness(1.1);
 		}
 	main {
 		float:left;

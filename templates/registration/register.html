@@ -1,4 +1,6 @@
-{% block 'register' %}
+{% extends 'base.html' %}
+
+{% block 'login' %}
 
 <h2>Register</h2>
 <form method="POST" class="post-form">		
@@ -10,7 +12,8 @@
 		</div>
 	{% endfor %}
 	{% csrf_token %}
+	<a href="/"><button id="register" type=button>Login</button></a>
 	<input type="submit" value="Register">
 </form>
 
-{% endblock 'register' %}
+{% endblock 'login' %}
